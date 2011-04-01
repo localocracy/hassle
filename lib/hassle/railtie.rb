@@ -7,7 +7,7 @@ module HassleRails
       require 'sass'
       require 'sass/plugin'
 
-      if (defined?(Rails.env) && (Rails.env.staging? || Rails.env.production?))
+      if (defined?(Rails.env) && (Rails.env.staging? || Rails.env.production? || Rails.env.edge? || Rails.env.qa?))
         if defined?(Rails.configuration) && defined?(Rails.configuration.middleware)
           Rails.configuration.middleware.use(Hassle)
         elsif defined?(ActionController::Dispatcher) && defined?(ActionController::Dispatcher.middleware)
